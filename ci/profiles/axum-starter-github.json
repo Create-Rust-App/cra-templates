@@ -1,0 +1,5 @@
+{
+  "template": "axum-starter",
+  "extensions": ["all-github-setup"],
+  "env": {}
+}

@@ -1,0 +1,85 @@
+name: CI Profiles (L3)
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate profile matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+      count: ${{ steps.set.outputs.count }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install CI helpers
+        run: pip install -r scripts/ci/requirements.txt
+
+      - name: Generate L3 matrix
+        id: set
+        run: python scripts/ci/generate-matrix.py --layer profiles
+
+  profiles:
+    name: ${{ matrix.cell.id }}
+    needs: generate
+    if: needs.generate.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      matrix:
+        cell: ${{ fromJson(needs.generate.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install Rust toolchain (pinned)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.82.0"
+          components: rustfmt, clippy
+
+      - name: Cache Cargo
+        uses: Swatinem/rust-cache@v2
+
+      - name: Apply profile overlays and test template
+        run: |
+          set -euo pipefail
+          profile='${{ matrix.cell.profile }}'
+          template=$(python -c "import json;print(json.load(open('$profile'))['template'])")
+          rm -rf /tmp/l3-check
+          cp -r "templates/$template" /tmp/l3-check
+          for ext in $(python -c "import json;print(' '.join(json.load(open('$profile')).get('extensions',[])))"); do
+            cp -r "extensions/$ext/template/." /tmp/l3-check/
+          done
+          cd /tmp/l3-check
+          python -c "import json,os;env=json.load(open('$GITHUB_WORKSPACE/$profile')).get('env',{});[print(f\"{k}={v}\") for k,v in env.items()]" >> "$GITHUB_ENV"
+          cargo test

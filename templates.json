@@ -1,0 +1,57 @@
+{
+  "$schema": "./templates.schema.json",
+  "categories": [
+    {
+      "slug": "backend-applications",
+      "name": "Backend Applications",
+      "description": "API and service starters for Axum and similar Rust backends.",
+      "details": "Use when the deliverable is an HTTP API or background worker — Axum for async APIs with Tokio.",
+      "labels": ["Backend", "API", "Rust", "Axum"]
+    },
+    {
+      "slug": "ci",
+      "name": "CI",
+      "description": "Continuous integration and repository automation.",
+      "details": "GitHub Actions, Dependabot, and related repository workflows.",
+      "labels": ["CI", "GitHub", "DevOps"]
+    },
+    {
+      "slug": "containers",
+      "name": "Containers",
+      "description": "Docker and Compose packaging for the app.",
+      "details": "Add when you want container images and compose stacks for the API.",
+      "labels": ["Docker", "Compose", "DevOps"]
+    }
+  ],
+  "templates": [
+    {
+      "name": "Axum Starter",
+      "slug": "axum-starter",
+      "description": "Production-ready Axum HTTP API with feature-based modules, Tokio, tracing, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/axum-starter",
+      "type": "axum-backend",
+      "category": "backend-applications",
+      "labels": ["Rust", "Axum", "Tokio", "API"]
+    }
+  ],
+  "extensions": [
+    {
+      "name": "GitHub Setup",
+      "slug": "all-github-setup",
+      "description": "GitHub Actions CI (fmt, clippy, test) for the scaffolded project",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-github-setup",
+      "type": ["axum-backend"],
+      "category": "ci",
+      "labels": ["CI", "GitHub", "DevOps"]
+    },
+    {
+      "name": "Axum Docker",
+      "slug": "axum-docker",
+      "description": "Multi-stage Docker build and Compose stack for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-docker",
+      "type": ["axum-backend"],
+      "category": "containers",
+      "labels": ["Docker", "Compose", "DevOps"]
+    }
+  ]
+}
