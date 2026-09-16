@@ -154,9 +154,12 @@ def cmd_validate_profiles() -> int:
 
 
 def emit_matrix(cells: list[dict[str, str]]) -> int:
-    matrix = {"include": cells}
+    # NOTE: the payload must be a bare JSON array. The matrix jobs consume it
+    # as `cell: ${{ fromJson(...) }}` (one axis value per cell), and a
+    # {"include": ...} object here is rejected as a non-array axis value,
+    # failing the whole run before any cell materializes.
     output = os.environ.get("GITHUB_OUTPUT")
-    payload = json.dumps(matrix)
+    payload = json.dumps(cells)
     if output:
         with open(output, "a", encoding="utf-8") as handle:
             handle.write(f"matrix={payload}\n")
