@@ -1,0 +1,11 @@
+{
+  "name": "axum-starter",
+  "customOptions": [
+    {
+      "key": "apiPrefix",
+      "type": "string",
+      "message": "API URL prefix (e.g. /api/v1)",
+      "default": "/api/v1"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# Rust toolchain pin
+
+# Mirrors the sibling banks' pinned toolchains (e.g. CVA's `.v-version`,
+# CPA's `.python-version`): every template and CI job builds with this
+# exact stable release so scaffolds are reproducible.
+[toolchain]
+channel = "1.82.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"

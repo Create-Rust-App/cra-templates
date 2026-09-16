@@ -1,0 +1,7 @@
+{
+  "template": "axum-starter",
+  "extensions": ["axum-docker"],
+  "env": {
+    "API_PREFIX": "/api/v1"
+  }
+}

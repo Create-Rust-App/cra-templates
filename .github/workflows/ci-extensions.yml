@@ -1,0 +1,71 @@
+name: CI Extensions (L2)
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate extension matrix
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+      count: ${{ steps.set.outputs.count }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install CI helpers
+        run: pip install -r scripts/ci/requirements.txt
+
+      - name: Generate L2 matrix
+        id: set
+        run: python scripts/ci/generate-matrix.py --layer extensions
+
+  extensions:
+    name: ${{ matrix.cell.id }}
+    needs: generate
+    if: needs.generate.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      matrix:
+        cell: ${{ fromJson(needs.generate.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Verify overlay applies cleanly
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/l2-check
+          cp -r "${{ matrix.cell.template_dir }}" /tmp/l2-check
+          cp -r "${{ matrix.cell.extension_dir }}/template/." /tmp/l2-check/
+          echo "Overlay ${{ matrix.cell.extension_dir }} applies onto ${{ matrix.cell.template_dir }}"
+          find /tmp/l2-check -maxdepth 2 | sort
