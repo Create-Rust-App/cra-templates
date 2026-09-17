@@ -65,8 +65,8 @@ Naming law (enforced by `validate-registry.py`):
 - Cross-cutting extensions use the `all-` prefix and must cover every
   template type: `all-github-setup`.
 
-The engine (`create-rust-app` 0.3.0+) additionally honors two overlay
-merge semantics when copying `template/` content:
+The engine (`create-rust-app` 0.4.0+) additionally honors overlay merge
+semantics when copying `template/` content:
 
 - `<name>.append` fragments append to the same-named project file
   (`router.rs.append` extends `router.rs`; a missing target is created).
@@ -76,6 +76,27 @@ merge semantics when copying `template/` content:
 - An overlay `Cargo.toml` merges `[dependencies]`, `[dev-dependencies]`,
   and `[build-dependencies]` into the project manifest. Missing entries are
   added and identical entries skipped; a conflicting requirement for the
-  same dependency fails the scaffold naming both specs. Every other overlay
-  section is ignored by contract — extension manifests must carry only
-  dependency tables, never `[package]` or targets.
+  same dependency fails the scaffold naming both specs. `[[bench]]`,
+  `[[example]]`, and `[[test]]` sections merge by target `name` with the
+  same add/skip/conflict rules. Every other overlay section is ignored by
+  contract — extension manifests must never restate `[package]` or other
+  metadata.
+- After all overlays land, the engine rewrites package references to the
+  new project names and runs best-effort `cargo fmt --all`, so composed
+  output (appended module declarations included) stays rustfmt-clean.
+
+## Extension points
+
+Templates expose linkme `distributed_slice` hooks so extensions register
+behavior without forking template files. An extension adds its item to the
+slice; the template folds the slice during assembly:
+
+| Hook | Template | Item | Example |
+|------|----------|------|---------|
+| `CUSTOM_LAYERS` | `axum-starter` (`src/app.rs`) | `fn(Router<AppState>) -> Router<AppState>` | `axum-cors`, `axum-security-headers` |
+| `CUSTOM_ROUTERS` | `axum-starter` (`src/app.rs`) | `fn() -> Router<AppState>`, merged under the API prefix | `axum-jwt`, `axum-sqlx`, `axum-openapi` |
+| `CUSTOM_SERVICES` | `tonic-starter` (`src/server.rs`) | `fn(Router) -> Router` (tonic `transport::server::Router`) | `tonic-health` |
+
+Rules for new hooks: declare the slice in the template with docs, consume
+it in exactly one assembly function, keep the base buildable with an empty
+slice, and cover the hook with an extension E2E test.
