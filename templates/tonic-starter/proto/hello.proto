@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package hello;
+
+// Greeter demonstrates a unary RPC plus reflection.
+service Greeter {
+  // SayHello returns a greeting for `name`.
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+// Greeting request carrying the name to greet.
+message HelloRequest {
+  string name = 1;
+}
+
+// Greeting reply carrying the rendered message.
+message HelloReply {
+  string message = 1;
+}

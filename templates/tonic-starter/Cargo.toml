@@ -1,0 +1,31 @@
+[package]
+name = "tonic-starter"
+version = "0.1.0"
+edition = "2021"
+description = "tonic gRPC microservice starter scaffolded with create-rust-app"
+license = "MIT"
+
+[[bin]]
+name = "tonic-starter"
+path = "src/main.rs"
+
+[lib]
+name = "tonic_starter"
+path = "src/lib.rs"
+
+[dependencies]
+# Pinned where floaters break the bank 1.82 toolchain; the tonic 0.12 line
+# itself is frozen, so ranges stay safe here.
+prost = "0.13"
+tokio = { version = "1", features = ["full"] }
+tonic = "0.12"
+tonic-reflection = "0.12"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tokio-stream = { version = "0.1", features = ["net"] }
+
+[profile.release]
+lto = true
+codegen-units = 1

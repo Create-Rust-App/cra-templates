@@ -20,10 +20,11 @@ CANONICAL_TEMPLATE_BY_TYPE: dict[str, str] = {
     "axum-backend": "axum-starter",
     "cli": "cli-starter",
     "leptos-fullstack": "leptos-starter",
+    "tonic-grpc": "tonic-starter",
 }
 
 # Every known template type (union of template types + extension types).
-ALL_TEMPLATE_TYPES: frozenset[str] = frozenset({"axum-backend", "cli", "leptos-fullstack"})
+ALL_TEMPLATE_TYPES: frozenset[str] = frozenset({"axum-backend", "cli", "leptos-fullstack", "tonic-grpc"})
 
 
 def load_registry() -> dict[str, Any]:

@@ -31,6 +31,7 @@ STACK_PREFIX_BY_TYPE: dict[str, str] = {
     "axum-backend": "axum",
     "cli": "cli",
     "leptos-fullstack": "leptos",
+    "tonic-grpc": "tonic",
 }
 
 REQUIRED_TEMPLATE_FILES = (
