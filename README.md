@@ -35,14 +35,30 @@ create-rust-app my-api \
 
 | Template | Type | Use case |
 |----------|------|----------|
-| [axum-starter](./templates/axum-starter) | `axum-backend` | Production-ready Axum HTTP API with feature-based modules, Tokio, tracing, `cargo fmt`/`clippy`/`test` |
+| [axum-starter](./templates/axum-starter) | `axum-backend` | Production-ready Axum HTTP API with feature-based modules, Tokio, tracing, and cargo fmt/clippy/test gates |
+| [cli-starter](./templates/cli-starter) | `cli` | Production-ready clap CLI with feature-based subcommands, tracing, shell completions, and cargo fmt/clippy/test gates |
+| [leptos-starter](./templates/leptos-starter) | `leptos-fullstack` | Leptos fullstack starter: SSR pages with htmx interactivity on Axum, tracing, and cargo fmt/clippy/test gates |
+| [worker-starter](./templates/worker-starter) | `worker` | Tokio background worker starter: typed job queue, worker pool, demo scheduler, graceful shutdown, and cargo fmt/clippy/test gates |
+| [lib-starter](./templates/lib-starter) | `library` | Publishable Rust library starter: feature modules, doc examples, demo binary, and cargo fmt/clippy/test gates |
+| [tonic-starter](./templates/tonic-starter) | `tonic-grpc` | tonic gRPC microservice starter: Protobuf contract, checked-in bindings, reflection, graceful shutdown, and cargo fmt/clippy/test gates |
 
 ## Available extensions
 
 | Extension | Applies to | Use case |
 |-----------|------------|----------|
 | [all-github-setup](./extensions/all-github-setup) | all templates | GitHub Actions CI (fmt, clippy, test) for the scaffolded project |
-| [axum-docker](./extensions/axum-docker) | `axum-backend` | Multi-stage Dockerfile for the Axum service |
+| [axum-docker](./extensions/axum-docker) | `axum-backend` | Multi-stage Docker build and Compose stack for the Axum service |
+| [all-devcontainer](./extensions/all-devcontainer) | all templates | Reproducible VS Code dev container (Rust image, rust-analyzer) for any scaffolded project |
+| [all-pre-commit](./extensions/all-pre-commit) | all templates | Pre-commit hooks mirroring CI gates (cargo fmt, clippy -D warnings) |
+| [axum-cors](./extensions/axum-cors) | `axum-backend` | Permissive CORS layer for the Axum service, registered without file forks |
+| [axum-jwt](./extensions/axum-jwt) | `axum-backend` | HS256 JWT authentication with a demo protected route for the Axum service |
+| [axum-openapi](./extensions/axum-openapi) | `axum-backend` | Served OpenAPI 3.1 document plus Redoc UI for the Axum service |
+| [axum-sqlx](./extensions/axum-sqlx) | `axum-backend` | SQLite persistence with embedded migrations and a todo CRUD API for the Axum service |
+| [axum-compression](./extensions/axum-compression) | `axum-backend` | Gzip response compression for the Axum service |
+| [axum-timeout](./extensions/axum-timeout) | `axum-backend` | Fail-fast 10s request timeouts for the Axum service |
+| [axum-request-id](./extensions/axum-request-id) | `axum-backend` | Unique x-request-id on every response for log correlation |
+| [axum-ratelimit](./extensions/axum-ratelimit) | `axum-backend` | Per-key rate limiting with 429 responses for the Axum service |
+| [all-gitlab-setup](./extensions/all-gitlab-setup) | all templates | GitLab CI pipeline for any scaffolded project |
 
 ## Repository layout
 
