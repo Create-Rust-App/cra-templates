@@ -21,6 +21,15 @@ pub struct AppState {
 #[distributed_slice]
 pub static CUSTOM_LAYERS: [fn(Router<AppState>) -> Router<AppState>] = [..];
 
+/// Extension point for routers contributed by extensions.
+///
+/// Each entry builds a `Router<AppState>` merged under the configured API
+/// prefix (e.g. the demo `/me` route from the `axum-jwt` extension).
+/// Entries are collected at link time, so extensions register without
+/// forking this file.
+#[distributed_slice]
+pub static CUSTOM_ROUTERS: [fn() -> Router<AppState>] = [..];
+
 /// Build the application router.
 ///
 /// `/ping` and `/` are infrastructure routes; domain routers are nested
@@ -29,7 +38,10 @@ pub fn create_app(config: &Config) -> Router {
     let state = AppState {
         api_prefix: config.api_prefix.clone(),
     };
-    let api = Router::new().merge(health::router());
+    let mut api = Router::new().merge(health::router());
+    for router in CUSTOM_ROUTERS.iter() {
+        api = api.merge(router());
+    }
     let router = Router::new()
         .route("/ping", get(ping))
         .route("/", get(root))
