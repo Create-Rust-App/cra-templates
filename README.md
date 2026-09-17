@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Rust Version](https://img.shields.io/badge/rust-1.88+-orange.svg)
+[![Discord](https://img.shields.io/discord/1527933660764831825?style=flat-square&label=Discord&logo=discord&logoColor=white)](https://discord.gg/bR5VyATgka)
 
 [![CI Integrity (L0)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-integrity.yml/badge.svg?branch=main)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-integrity.yml)
 [![CI Templates (L1)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-templates.yml/badge.svg?branch=main)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-templates.yml)
@@ -23,7 +24,7 @@ curl localhost:8080/api/v1/healthz
 ```
 
 For local development against this checkout, point the CLI at a `file://`
-catalog path once `create-rust-app` is available:
+catalog path ([install the CLI](https://github.com/Create-Rust-App/create-rust-app) first):
 
 ```sh
 create-rust-app my-api \
