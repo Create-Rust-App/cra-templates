@@ -387,6 +387,21 @@
       ]
     },
     {
+      "name": "Axum Rate Limit",
+      "slug": "axum-ratelimit",
+      "description": "Per-key rate limiting with 429 responses for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-ratelimit",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "security",
+      "labels": [
+        "Rate-Limit",
+        "Middleware",
+        "Quota"
+      ]
+    },
+    {
       "name": "GitLab Setup",
       "slug": "all-gitlab-setup",
       "description": "GitLab CI pipeline for any scaffolded project",
