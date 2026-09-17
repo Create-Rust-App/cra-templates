@@ -1,7 +1,7 @@
 # CRA Templates
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Rust Version](https://img.shields.io/badge/rust-1.82+-orange.svg)
+![Rust Version](https://img.shields.io/badge/rust-1.88+-orange.svg)
 
 [![CI Integrity (L0)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-integrity.yml/badge.svg?branch=main)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-integrity.yml)
 [![CI Templates (L1)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-templates.yml/badge.svg?branch=main)](https://github.com/Create-Rust-App/cra-templates/actions/workflows/ci-templates.yml)

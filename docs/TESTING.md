@@ -31,7 +31,7 @@ cd my-api && cargo test
 
 ## CI details
 
-L1–L3 jobs install the pinned toolchain (`rust-toolchain.toml`, 1.82.0)
+L1–L3 jobs install the pinned toolchain (`rust-toolchain.toml`, 1.88.0)
 via `dtolnay/rust-toolchain` and cache Cargo with `Swatinem/rust-cache`.
 L3 exports each profile's `env` block before running `cargo test`, so
 profiles like a custom `API_PREFIX` are exercised, not just parsed.

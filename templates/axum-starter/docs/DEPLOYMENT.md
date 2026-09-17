@@ -13,7 +13,7 @@ The release profile enables LTO with a single codegen unit (see
 ## Containers
 
 Apply the `axum-docker` extension for a multi-stage Dockerfile, or build
-your own from `rust:1.82` pinning the same toolchain as
+your own from `rust:1.88` pinning the same toolchain as
 `rust-toolchain.toml`.
 
 ## Runtime

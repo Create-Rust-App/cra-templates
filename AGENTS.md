@@ -15,7 +15,7 @@ This repo is the template and extension bank for
   `type` covers every template type.
 - **`Cargo.toml`** — lives in the template root and defines the scaffolded
   crate. Templates must build with the pinned toolchain in
-  `rust-toolchain.toml` (currently 1.82.0).
+  `rust-toolchain.toml` (currently 1.88.0).
 - **`template/` subdirectory** — for extensions, the overlay root. When
   present, the engine copies from `extensions/<slug>/template/` instead of the
   extension root. Keep `README.md` at `extensions/<slug>/README.md` (not inside
