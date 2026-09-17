@@ -1,0 +1,5 @@
+{
+  "template": "tonic-starter",
+  "extensions": ["tonic-health"],
+  "env": {}
+}
