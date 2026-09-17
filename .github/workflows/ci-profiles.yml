@@ -71,6 +71,10 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: Install released create-rust-app
+        # Outside the checkout: the bank pins 1.82 via rust-toolchain.toml,
+        # whose Cargo cannot parse modern manifests (e.g. clap 4.6 needs
+        # edition2024). /tmp has no pin, so the 1.88 job toolchain applies.
+        working-directory: /tmp
         run: |
           set -euo pipefail
           cargo install create-awesome-rust-app --locked
