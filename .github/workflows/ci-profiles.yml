@@ -70,16 +70,34 @@ jobs:
       - name: Cache Cargo
         uses: Swatinem/rust-cache@v2
 
-      - name: Apply profile overlays and test template
+      - name: Install released create-rust-app
+        run: |
+          set -euo pipefail
+          cargo install create-awesome-rust-app --locked
+
+      - name: Scaffold profile with the engine and test
         run: |
           set -euo pipefail
           profile='${{ matrix.cell.profile }}'
           template=$(python -c "import json;print(json.load(open('$profile'))['template'])")
-          rm -rf /tmp/l3-check
-          cp -r "templates/$template" /tmp/l3-check
+          addons=""
           for ext in $(python -c "import json;print(' '.join(json.load(open('$profile')).get('extensions',[])))"); do
-            cp -r "extensions/$ext/template/." /tmp/l3-check/
+            addons="${addons:+$addons,}file://$GITHUB_WORKSPACE/extensions/$ext"
           done
+          rm -rf /tmp/l3-check
+          # Real engine composition (dependency union, `.append` fragments,
+          # reference rewrites, formatting) instead of a plain file copy, so
+          # L3 verifies exactly what users receive.
+          if [ -z "$addons" ]; then
+            create-rust-app /tmp/l3-check \
+              --template "file://$GITHUB_WORKSPACE/templates/$template" \
+              --no-interactive --no-install
+          else
+            create-rust-app /tmp/l3-check \
+              --template "file://$GITHUB_WORKSPACE/templates/$template" \
+              --addons "$addons" \
+              --no-interactive --no-install
+          fi
           cd /tmp/l3-check
           python -c "import json,os;env=json.load(open('$GITHUB_WORKSPACE/$profile')).get('env',{});[print(f\"{k}={v}\") for k,v in env.items()]" >> "$GITHUB_ENV"
           cargo test
