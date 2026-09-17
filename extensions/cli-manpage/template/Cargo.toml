@@ -1,0 +1,5 @@
+[dev-dependencies]
+clap_mangen = "0.2"
+
+[[example]]
+name = "gen-man"

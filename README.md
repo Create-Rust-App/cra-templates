@@ -63,6 +63,7 @@ create-rust-app my-api \
 | [tonic-health](./extensions/tonic-health) | `tonic-grpc` | Standard gRPC health probing with the Greeter marked SERVING |
 | [lib-criterion](./extensions/lib-criterion) | `library` | Criterion throughput benchmarks for library starters |
 | [axum-otel](./extensions/axum-otel) | `axum-backend` | OTLP trace export with inert local default for the Axum service |
+| [cli-manpage](./extensions/cli-manpage) | `cli` | Generated man pages from the clap definition for CLI starters |
 
 ## Repository layout
 
