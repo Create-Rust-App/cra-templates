@@ -1,6 +1,7 @@
 //! Router assembly and shared application state.
 
 use axum::{extract::State, routing::get, Json, Router};
+use linkme::distributed_slice;
 use serde_json::{json, Value};
 
 use crate::{config::Config, routes::health};
@@ -12,6 +13,14 @@ pub struct AppState {
     pub api_prefix: String,
 }
 
+/// Extension point for router layers contributed by extensions.
+///
+/// Each entry maps `Router<AppState>` to itself (e.g. the CORS layer from
+/// the `axum-cors` extension). Entries are collected at link time, so
+/// extensions register without forking this file.
+#[distributed_slice]
+pub static CUSTOM_LAYERS: [fn(Router<AppState>) -> Router<AppState>] = [..];
+
 /// Build the application router.
 ///
 /// `/ping` and `/` are infrastructure routes; domain routers are nested
@@ -21,11 +30,14 @@ pub fn create_app(config: &Config) -> Router {
         api_prefix: config.api_prefix.clone(),
     };
     let api = Router::new().merge(health::router());
-    Router::new()
+    let router = Router::new()
         .route("/ping", get(ping))
         .route("/", get(root))
-        .nest(&config.api_prefix, api)
-        .with_state(state)
+        .nest(&config.api_prefix, api);
+    let router = CUSTOM_LAYERS
+        .iter()
+        .fold(router, |router, layer| layer(router));
+    router.with_state(state)
 }
 
 /// Minimal health probe for load balancers (not versioned).
