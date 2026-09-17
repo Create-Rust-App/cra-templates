@@ -1,0 +1,5 @@
+{
+  "template": "lib-starter",
+  "extensions": ["all-github-setup"],
+  "env": {}
+}

@@ -166,6 +166,32 @@
       ]
     },
     {
+      "name": "Worker Starter",
+      "slug": "worker-starter",
+      "description": "Tokio background worker starter: typed job queue, worker pool, demo scheduler, graceful shutdown, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/worker-starter",
+      "type": "worker",
+      "category": "backend-applications",
+      "labels": [
+        "Rust",
+        "Tokio",
+        "Worker",
+        "Jobs"
+      ]
+    },
+    {
+      "name": "Lib Starter",
+      "slug": "lib-starter",
+      "description": "Publishable Rust library starter: feature modules, doc examples, demo binary, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/lib-starter",
+      "type": "library",
+      "category": "backend-applications",
+      "labels": [
+        "Rust",
+        "Library"
+      ]
+    },
+    {
       "name": "Tonic Starter",
       "slug": "tonic-starter",
       "description": "tonic gRPC microservice starter: Protobuf contract, checked-in bindings, reflection, graceful shutdown, and cargo fmt/clippy/test gates",
@@ -190,6 +216,8 @@
         "axum-backend",
         "cli",
         "leptos-fullstack",
+        "worker",
+        "library",
         "tonic-grpc"
       ],
       "category": "ci",
@@ -223,6 +251,8 @@
         "axum-backend",
         "cli",
         "leptos-fullstack",
+        "worker",
+        "library",
         "tonic-grpc"
       ],
       "category": "editor",
@@ -240,6 +270,8 @@
         "axum-backend",
         "cli",
         "leptos-fullstack",
+        "worker",
+        "library",
         "tonic-grpc"
       ],
       "category": "ci",
