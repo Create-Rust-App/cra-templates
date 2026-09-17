@@ -1,0 +1,5 @@
+# Pinned toolchain for the scaffolded project (mirrors the bank pin).
+[toolchain]
+channel = "1.82.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"
