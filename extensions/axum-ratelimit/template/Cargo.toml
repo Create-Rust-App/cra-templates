@@ -1,0 +1,5 @@
+# Pinned to the 0.5 line: 0.6+ targets axum 0.8, whose Body type clashes
+# with the template's axum 0.7 routes.
+[dependencies]
+http = "1"
+tower_governor = "=0.5.0"
