@@ -61,6 +61,7 @@ create-rust-app my-api \
 | [axum-security-headers](./extensions/axum-security-headers) | `axum-backend` | Baseline response hardening headers for the Axum service |
 | [all-gitlab-setup](./extensions/all-gitlab-setup) | all templates | GitLab CI pipeline for any scaffolded project |
 | [tonic-health](./extensions/tonic-health) | `tonic-grpc` | Standard gRPC health probing with the Greeter marked SERVING |
+| [lib-criterion](./extensions/lib-criterion) | `library` | Criterion throughput benchmarks for library starters |
 
 ## Repository layout
 

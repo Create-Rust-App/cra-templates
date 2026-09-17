@@ -1,0 +1,6 @@
+[dev-dependencies]
+criterion = "0.7"
+
+[[bench]]
+name = "slug"
+harness = false
