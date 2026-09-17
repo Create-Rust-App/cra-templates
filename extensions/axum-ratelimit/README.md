@@ -19,3 +19,8 @@ through the template's `CUSTOM_LAYERS` extension point (no file forks).
 ## Compatibility
 
 Applies to `axum-backend` templates.
+
+Note: this extension is intentionally excluded from the
+`axum-starter-extensions` L3 profile. Quotas are process-global, so the
+combined hammering of every suite would trip them; each suite passes
+standalone and in smaller compositions.
