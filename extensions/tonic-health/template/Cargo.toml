@@ -1,0 +1,2 @@
+[dependencies]
+tonic-health = "0.12"

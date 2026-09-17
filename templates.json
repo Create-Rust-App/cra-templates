@@ -435,6 +435,21 @@
         "Hardening",
         "HTTP"
       ]
+    },
+    {
+      "name": "Tonic Health",
+      "slug": "tonic-health",
+      "description": "Standard gRPC health probing with the Greeter marked SERVING",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/tonic-health",
+      "type": [
+        "tonic-grpc"
+      ],
+      "category": "observability",
+      "labels": [
+        "Health",
+        "Probe",
+        "gRPC"
+      ]
     }
   ]
 }
