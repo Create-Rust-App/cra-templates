@@ -385,6 +385,26 @@
         "Middleware",
         "Tracing"
       ]
+    },
+    {
+      "name": "GitLab Setup",
+      "slug": "all-gitlab-setup",
+      "description": "GitLab CI pipeline for any scaffolded project",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-gitlab-setup",
+      "type": [
+        "axum-backend",
+        "cli",
+        "leptos-fullstack",
+        "library",
+        "tonic-grpc",
+        "worker"
+      ],
+      "category": "ci",
+      "labels": [
+        "GitLab",
+        "CI",
+        "DevOps"
+      ]
     }
   ]
 }

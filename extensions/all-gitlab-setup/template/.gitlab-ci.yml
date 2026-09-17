@@ -1,0 +1,34 @@
+# Scaffolded project CI (GitLab).
+#
+# Mirrors the GitHub Actions pipeline from the `all-github-setup` extension:
+# formatting, Clippy with denied warnings, and the full test suite.
+# The image tracks the bank toolchain pin (currently 1.88).
+
+stages:
+  - lint
+  - test
+
+variables:
+  CARGO_HOME: $CI_PROJECT_DIR/.cargo
+  CARGO_TARGET_DIR: $CI_PROJECT_DIR/target
+
+fmt:
+  stage: lint
+  image: rust:1.88-bookworm
+  interruptible: true
+  script:
+    - cargo fmt --all -- --check
+
+clippy:
+  stage: lint
+  image: rust:1.88-bookworm
+  interruptible: true
+  script:
+    - cargo clippy --all-targets -- -D warnings
+
+test:
+  stage: test
+  image: rust:1.88-bookworm
+  interruptible: true
+  script:
+    - cargo test
