@@ -164,6 +164,32 @@
         "SSR",
         "Fullstack"
       ]
+    },
+    {
+      "name": "Worker Starter",
+      "slug": "worker-starter",
+      "description": "Tokio background worker starter: typed job queue, worker pool, demo scheduler, graceful shutdown, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/worker-starter",
+      "type": "worker",
+      "category": "backend-applications",
+      "labels": [
+        "Rust",
+        "Tokio",
+        "Worker",
+        "Jobs"
+      ]
+    },
+    {
+      "name": "Lib Starter",
+      "slug": "lib-starter",
+      "description": "Publishable Rust library starter: feature modules, doc examples, demo binary, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/lib-starter",
+      "type": "library",
+      "category": "backend-applications",
+      "labels": [
+        "Rust",
+        "Library"
+      ]
     }
   ],
   "extensions": [
@@ -175,7 +201,9 @@
       "type": [
         "axum-backend",
         "cli",
-        "leptos-fullstack"
+        "leptos-fullstack",
+        "worker",
+        "library"
       ],
       "category": "ci",
       "labels": [
@@ -207,7 +235,9 @@
       "type": [
         "axum-backend",
         "cli",
-        "leptos-fullstack"
+        "leptos-fullstack",
+        "worker",
+        "library"
       ],
       "category": "editor",
       "labels": [
@@ -223,7 +253,9 @@
       "type": [
         "axum-backend",
         "cli",
-        "leptos-fullstack"
+        "leptos-fullstack",
+        "worker",
+        "library"
       ],
       "category": "ci",
       "labels": [

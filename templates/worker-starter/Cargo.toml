@@ -1,0 +1,26 @@
+[package]
+name = "worker-starter"
+version = "0.1.0"
+edition = "2021"
+description = "Tokio background worker starter scaffolded with create-rust-app"
+license = "MIT"
+
+[[bin]]
+name = "worker-starter"
+path = "src/main.rs"
+
+[lib]
+name = "worker_starter"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[profile.release]
+lto = true
+codegen-units = 1

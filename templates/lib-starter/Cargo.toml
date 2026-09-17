@@ -1,0 +1,22 @@
+[package]
+name = "lib-starter"
+version = "0.1.0"
+edition = "2021"
+description = "Publishable Rust library starter scaffolded with create-rust-app"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Create-Rust-App/cra-templates"
+keywords = ["starter", "template"]
+categories = ["development-tools"]
+
+[[bin]]
+name = "lib-starter"
+path = "src/main.rs"
+
+[lib]
+name = "lib_starter"
+path = "src/lib.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
