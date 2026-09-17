@@ -18,10 +18,11 @@ CRA_REPO_URL = "https://github.com/Create-Rust-App/cra-templates"
 # Canonical template directory per extension `type`.
 CANONICAL_TEMPLATE_BY_TYPE: dict[str, str] = {
     "axum-backend": "axum-starter",
+    "cli": "cli-starter",
 }
 
 # Every known template type (union of template types + extension types).
-ALL_TEMPLATE_TYPES: frozenset[str] = frozenset({"axum-backend"})
+ALL_TEMPLATE_TYPES: frozenset[str] = frozenset({"axum-backend", "cli"})
 
 
 def load_registry() -> dict[str, Any]:

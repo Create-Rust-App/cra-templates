@@ -1,0 +1,5 @@
+{
+  "template": "cli-starter",
+  "extensions": ["all-github-setup"],
+  "env": {}
+}

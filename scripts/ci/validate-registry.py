@@ -29,6 +29,7 @@ except ImportError:
 # Folder prefix required for stack-bound extensions (single type).
 STACK_PREFIX_BY_TYPE: dict[str, str] = {
     "axum-backend": "axum",
+    "cli": "cli",
 }
 
 REQUIRED_TEMPLATE_FILES = (

@@ -1,0 +1,25 @@
+[package]
+name = "cli-starter"
+version = "0.1.0"
+edition = "2021"
+description = "Clap CLI starter scaffolded with create-rust-app"
+license = "MIT"
+
+[[bin]]
+name = "cli-starter"
+path = "src/main.rs"
+
+[lib]
+name = "cli_starter"
+path = "src/lib.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive", "cargo"] }
+clap_complete = "4"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[profile.release]
+lto = true
+codegen-units = 1

@@ -65,5 +65,17 @@ Naming law (enforced by `validate-registry.py`):
 - Cross-cutting extensions use the `all-` prefix and must cover every
   template type: `all-github-setup`.
 
-The engine also honors `.template` (rendered per file) and `.append`
-(append to existing target) file semantics.
+The engine (`create-rust-app` 0.3.0+) additionally honors two overlay
+merge semantics when copying `template/` content:
+
+- `<name>.append` fragments append to the same-named project file
+  (`router.rs.append` extends `router.rs`; a missing target is created).
+  Fragments apply after every plain copy in the same overlay pass, so file
+  order is deterministic. Use fragments to register routers, declare
+  modules, add env keys, and index docs without forking template files.
+- An overlay `Cargo.toml` merges `[dependencies]`, `[dev-dependencies]`,
+  and `[build-dependencies]` into the project manifest. Missing entries are
+  added and identical entries skipped; a conflicting requirement for the
+  same dependency fails the scaffold naming both specs. Every other overlay
+  section is ignored by contract — extension manifests must carry only
+  dependency tables, never `[package]` or targets.

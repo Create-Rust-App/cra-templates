@@ -6,21 +6,120 @@
       "name": "Backend Applications",
       "description": "API and service starters for Axum and similar Rust backends.",
       "details": "Use when the deliverable is an HTTP API or background worker — Axum for async APIs with Tokio.",
-      "labels": ["Backend", "API", "Rust", "Axum"]
+      "labels": [
+        "Backend",
+        "API",
+        "Rust",
+        "Axum"
+      ]
     },
     {
       "slug": "ci",
       "name": "CI",
       "description": "Continuous integration and repository automation.",
       "details": "GitHub Actions, Dependabot, and related repository workflows.",
-      "labels": ["CI", "GitHub", "DevOps"]
+      "labels": [
+        "CI",
+        "GitHub",
+        "DevOps"
+      ]
     },
     {
       "slug": "containers",
       "name": "Containers",
       "description": "Docker and Compose packaging for the app.",
       "details": "Add when you want container images and compose stacks for the API.",
-      "labels": ["Docker", "Compose", "DevOps"]
+      "labels": [
+        "Docker",
+        "Compose",
+        "DevOps"
+      ]
+    },
+    {
+      "slug": "cli-applications",
+      "name": "CLI Applications",
+      "description": "Command-line tools and interactive CLIs.",
+      "details": "Use when the deliverable runs in a terminal — clap CLIs with subcommands.",
+      "labels": [
+        "CLI",
+        "Rust",
+        "Clap"
+      ]
+    },
+    {
+      "slug": "fullstack-applications",
+      "name": "Fullstack Applications",
+      "description": "Client plus server in one Rust workspace.",
+      "details": "Use when UI and API ship together — Leptos fullstack with Axum backend.",
+      "labels": [
+        "Fullstack",
+        "Rust",
+        "Leptos"
+      ]
+    },
+    {
+      "slug": "database",
+      "name": "Database",
+      "description": "Persistence layers and migrations.",
+      "details": "Add when the app stores state — SQLx with Postgres or SQLite.",
+      "labels": [
+        "Database",
+        "SQLx",
+        "Postgres"
+      ]
+    },
+    {
+      "slug": "observability",
+      "name": "Observability",
+      "description": "Metrics, traces, and error tracking.",
+      "details": "Add when the service needs production telemetry — OpenTelemetry or Sentry.",
+      "labels": [
+        "Observability",
+        "OTel",
+        "Tracing"
+      ]
+    },
+    {
+      "slug": "security",
+      "name": "Security",
+      "description": "Authentication and hardening.",
+      "details": "Add when users sign in or routes need protection — JWT auth, CORS, rate limits.",
+      "labels": [
+        "Security",
+        "Auth",
+        "JWT"
+      ]
+    },
+    {
+      "slug": "testing",
+      "name": "Testing",
+      "description": "Integration, load, and container testing.",
+      "details": "Add when tests need real dependencies — testcontainers, k6.",
+      "labels": [
+        "Testing",
+        "E2E"
+      ]
+    },
+    {
+      "slug": "ai-applications",
+      "name": "AI Applications",
+      "description": "LLM-powered services and agents.",
+      "details": "Use when the app calls models — chat, RAG, guardrails.",
+      "labels": [
+        "AI",
+        "LLM",
+        "Rust"
+      ]
+    },
+    {
+      "slug": "editor",
+      "name": "Editor",
+      "description": "Dev containers and editor automation.",
+      "details": "Add for reproducible dev environments — devcontainers, pre-commit.",
+      "labels": [
+        "DevContainer",
+        "DX"
+      ]
     }
   ],
   "templates": [
@@ -31,7 +130,25 @@
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/axum-starter",
       "type": "axum-backend",
       "category": "backend-applications",
-      "labels": ["Rust", "Axum", "Tokio", "API"]
+      "labels": [
+        "Rust",
+        "Axum",
+        "Tokio",
+        "API"
+      ]
+    },
+    {
+      "name": "CLI Starter",
+      "slug": "cli-starter",
+      "description": "Production-ready clap CLI with feature-based subcommands, tracing, shell completions, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/cli-starter",
+      "type": "cli",
+      "category": "cli-applications",
+      "labels": [
+        "Rust",
+        "Clap",
+        "CLI"
+      ]
     }
   ],
   "extensions": [
@@ -40,18 +157,62 @@
       "slug": "all-github-setup",
       "description": "GitHub Actions CI (fmt, clippy, test) for the scaffolded project",
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-github-setup",
-      "type": ["axum-backend"],
+      "type": [
+        "axum-backend",
+        "cli"
+      ],
       "category": "ci",
-      "labels": ["CI", "GitHub", "DevOps"]
+      "labels": [
+        "CI",
+        "GitHub",
+        "DevOps"
+      ]
     },
     {
       "name": "Axum Docker",
       "slug": "axum-docker",
       "description": "Multi-stage Docker build and Compose stack for the Axum service",
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-docker",
-      "type": ["axum-backend"],
+      "type": [
+        "axum-backend"
+      ],
       "category": "containers",
-      "labels": ["Docker", "Compose", "DevOps"]
+      "labels": [
+        "Docker",
+        "Compose",
+        "DevOps"
+      ]
+    },
+    {
+      "name": "Dev Container",
+      "slug": "all-devcontainer",
+      "description": "Reproducible VS Code dev container (Rust image, rust-analyzer) for any scaffolded project",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-devcontainer",
+      "type": [
+        "axum-backend",
+        "cli"
+      ],
+      "category": "editor",
+      "labels": [
+        "DevContainer",
+        "DX"
+      ]
+    },
+    {
+      "name": "Pre-commit",
+      "slug": "all-pre-commit",
+      "description": "Pre-commit hooks mirroring CI gates (cargo fmt, clippy -D warnings)",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-pre-commit",
+      "type": [
+        "axum-backend",
+        "cli"
+      ],
+      "category": "ci",
+      "labels": [
+        "CI",
+        "Git",
+        "DX"
+      ]
     }
   ]
 }
