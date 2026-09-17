@@ -480,6 +480,21 @@
         "Tracing",
         "OTLP"
       ]
+    },
+    {
+      "name": "CLI Manpage",
+      "slug": "cli-manpage",
+      "description": "Generated man pages from the clap definition for CLI starters",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/cli-manpage",
+      "type": [
+        "cli"
+      ],
+      "category": "cli-applications",
+      "labels": [
+        "Manpage",
+        "Docs",
+        "Clap"
+      ]
     }
   ]
 }
