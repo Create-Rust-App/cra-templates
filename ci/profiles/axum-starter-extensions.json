@@ -8,7 +8,8 @@
     "axum-request-id",
     "axum-timeout",
     "axum-compression",
-    "axum-security-headers"
+    "axum-security-headers",
+    "axum-otel"
   ],
   "env": {}
 }
