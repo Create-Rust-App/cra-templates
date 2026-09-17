@@ -1,0 +1,9 @@
+# Pre-commit hooks for Rust projects (fmt + clippy).
+# Install: pip install pre-commit && pre-commit install
+repos:
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+      - id: clippy
+        args: ["--", "--all-targets", "--", "-D", "warnings"]

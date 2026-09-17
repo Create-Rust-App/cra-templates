@@ -1,0 +1,11 @@
+{
+  "name": "cli-starter",
+  "customOptions": [
+    {
+      "key": "defaultName",
+      "type": "string",
+      "message": "Default greeted name (CLI_DEFAULT_NAME)",
+      "default": "world"
+    }
+  ]
+}
