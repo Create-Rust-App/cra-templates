@@ -342,6 +342,21 @@
       ]
     },
     {
+      "name": "Axum Timeout",
+      "slug": "axum-timeout",
+      "description": "Fail-fast 10s request timeouts for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-timeout",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "observability",
+      "labels": [
+        "Timeout",
+        "Middleware",
+        "Resilience"
+      ]
+    },
+    {
       "name": "Axum Request ID",
       "slug": "axum-request-id",
       "description": "Unique x-request-id on every response for log correlation",
