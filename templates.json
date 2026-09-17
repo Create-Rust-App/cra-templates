@@ -465,6 +465,21 @@
         "Probe",
         "gRPC"
       ]
+    },
+    {
+      "name": "Axum OpenTelemetry",
+      "slug": "axum-otel",
+      "description": "OTLP trace export with inert local default for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-otel",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "observability",
+      "labels": [
+        "OpenTelemetry",
+        "Tracing",
+        "OTLP"
+      ]
     }
   ]
 }
