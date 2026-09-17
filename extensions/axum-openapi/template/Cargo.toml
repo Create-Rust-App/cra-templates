@@ -1,0 +1,3 @@
+[dependencies]
+utoipa = "5"
+utoipa-redoc = { version = "5", features = ["axum"] }
