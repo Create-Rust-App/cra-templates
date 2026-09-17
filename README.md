@@ -62,6 +62,7 @@ create-rust-app my-api \
 | [all-gitlab-setup](./extensions/all-gitlab-setup) | all templates | GitLab CI pipeline for any scaffolded project |
 | [tonic-health](./extensions/tonic-health) | `tonic-grpc` | Standard gRPC health probing with the Greeter marked SERVING |
 | [lib-criterion](./extensions/lib-criterion) | `library` | Criterion throughput benchmarks for library starters |
+| [axum-otel](./extensions/axum-otel) | `axum-backend` | OTLP trace export with inert local default for the Axum service |
 
 ## Repository layout
 
