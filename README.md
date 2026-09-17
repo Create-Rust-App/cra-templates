@@ -58,6 +58,7 @@ create-rust-app my-api \
 | [axum-timeout](./extensions/axum-timeout) | `axum-backend` | Fail-fast 10s request timeouts for the Axum service |
 | [axum-request-id](./extensions/axum-request-id) | `axum-backend` | Unique x-request-id on every response for log correlation |
 | [axum-ratelimit](./extensions/axum-ratelimit) | `axum-backend` | Per-key rate limiting with 429 responses for the Axum service |
+| [axum-security-headers](./extensions/axum-security-headers) | `axum-backend` | Baseline response hardening headers for the Axum service |
 | [all-gitlab-setup](./extensions/all-gitlab-setup) | all templates | GitLab CI pipeline for any scaffolded project |
 
 ## Repository layout

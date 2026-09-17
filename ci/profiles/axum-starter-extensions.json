@@ -1,5 +1,14 @@
 {
   "template": "axum-starter",
-  "extensions": ["axum-cors", "axum-jwt", "axum-openapi", "axum-sqlx"],
+  "extensions": [
+    "axum-cors",
+    "axum-jwt",
+    "axum-openapi",
+    "axum-sqlx",
+    "axum-request-id",
+    "axum-timeout",
+    "axum-compression",
+    "axum-security-headers"
+  ],
   "env": {}
 }
