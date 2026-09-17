@@ -59,6 +59,7 @@ create-rust-app my-api \
 | [axum-request-id](./extensions/axum-request-id) | `axum-backend` | Unique x-request-id on every response for log correlation |
 | [axum-ratelimit](./extensions/axum-ratelimit) | `axum-backend` | Per-key rate limiting with 429 responses for the Axum service |
 | [all-gitlab-setup](./extensions/all-gitlab-setup) | all templates | GitLab CI pipeline for any scaffolded project |
+| [tonic-health](./extensions/tonic-health) | `tonic-grpc` | Standard gRPC health probing with the Greeter marked SERVING |
 
 ## Repository layout
 
