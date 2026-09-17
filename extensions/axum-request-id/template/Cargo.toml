@@ -1,0 +1,2 @@
+[dependencies]
+tower-http = { version = "0.5", features = ["request-id"] }

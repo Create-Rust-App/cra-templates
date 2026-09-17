@@ -340,6 +340,21 @@
         "SQLx",
         "Migrations"
       ]
+    },
+    {
+      "name": "Axum Request ID",
+      "slug": "axum-request-id",
+      "description": "Unique x-request-id on every response for log correlation",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-request-id",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "observability",
+      "labels": [
+        "Request-ID",
+        "Middleware",
+        "Tracing"
+      ]
     }
   ]
 }
