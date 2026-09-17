@@ -190,6 +190,20 @@
         "Rust",
         "Library"
       ]
+    },
+    {
+      "name": "Tonic Starter",
+      "slug": "tonic-starter",
+      "description": "tonic gRPC microservice starter: Protobuf contract, checked-in bindings, reflection, graceful shutdown, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/tonic-starter",
+      "type": "tonic-grpc",
+      "category": "backend-applications",
+      "labels": [
+        "Rust",
+        "Tonic",
+        "gRPC",
+        "Microservice"
+      ]
     }
   ],
   "extensions": [
@@ -203,7 +217,8 @@
         "cli",
         "leptos-fullstack",
         "worker",
-        "library"
+        "library",
+        "tonic-grpc"
       ],
       "category": "ci",
       "labels": [
@@ -237,7 +252,8 @@
         "cli",
         "leptos-fullstack",
         "worker",
-        "library"
+        "library",
+        "tonic-grpc"
       ],
       "category": "editor",
       "labels": [
@@ -255,7 +271,8 @@
         "cli",
         "leptos-fullstack",
         "worker",
-        "library"
+        "library",
+        "tonic-grpc"
       ],
       "category": "ci",
       "labels": [

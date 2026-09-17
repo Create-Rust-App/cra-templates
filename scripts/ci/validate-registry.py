@@ -33,6 +33,7 @@ STACK_PREFIX_BY_TYPE: dict[str, str] = {
     "leptos-fullstack": "leptos",
     "worker": "worker",
     "library": "lib",
+    "tonic-grpc": "tonic",
 }
 
 REQUIRED_TEMPLATE_FILES = (

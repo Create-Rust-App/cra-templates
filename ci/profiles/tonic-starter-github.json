@@ -1,0 +1,5 @@
+{
+  "template": "tonic-starter",
+  "extensions": ["all-github-setup"],
+  "env": {}
+}
