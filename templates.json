@@ -437,6 +437,21 @@
       ]
     },
     {
+      "name": "Lib Criterion",
+      "slug": "lib-criterion",
+      "description": "Criterion throughput benchmarks for library starters",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/lib-criterion",
+      "type": [
+        "library"
+      ],
+      "category": "testing",
+      "labels": [
+        "Benchmarks",
+        "Criterion",
+        "Perf"
+      ]
+    },
+    {
       "name": "Tonic Health",
       "slug": "tonic-health",
       "description": "Standard gRPC health probing with the Greeter marked SERVING",
