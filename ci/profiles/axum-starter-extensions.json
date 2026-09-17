@@ -1,0 +1,5 @@
+{
+  "template": "axum-starter",
+  "extensions": ["axum-cors", "axum-jwt", "axum-openapi", "axum-sqlx"],
+  "env": {}
+}
