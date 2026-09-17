@@ -96,6 +96,7 @@ slice; the template folds the slice during assembly:
 | `CUSTOM_LAYERS` | `axum-starter` (`src/app.rs`) | `fn(Router<AppState>) -> Router<AppState>` | `axum-cors`, `axum-security-headers` |
 | `CUSTOM_ROUTERS` | `axum-starter` (`src/app.rs`) | `fn() -> Router<AppState>`, merged under the API prefix | `axum-jwt`, `axum-sqlx`, `axum-openapi` |
 | `CUSTOM_SERVICES` | `tonic-starter` (`src/server.rs`) | `fn(Router) -> Router` (tonic `transport::server::Router`) | `tonic-health` |
+| `CUSTOM_TRACING` | `axum-starter` (`src/telemetry.rs`) | `fn() -> TracingLayer` (boxed `Layer<Registry>`) | `axum-otel` |
 
 Rules for new hooks: declare the slice in the template with docs, consume
 it in exactly one assembly function, keep the base buildable with an empty
