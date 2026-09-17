@@ -1,0 +1,30 @@
+[package]
+name = "leptos-starter"
+version = "0.1.0"
+edition = "2021"
+description = "Leptos fullstack starter (SSR + htmx islands) scaffolded with create-rust-app"
+license = "MIT"
+
+[[bin]]
+name = "leptos-starter"
+path = "src/main.rs"
+
+[lib]
+name = "leptos_starter"
+path = "src/lib.rs"
+
+[dependencies]
+axum = "0.7"
+leptos = { version = "=0.6.15", features = ["ssr"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tower = { version = "0.5", features = ["util"] }
+
+[profile.release]
+lto = true
+codegen-units = 1

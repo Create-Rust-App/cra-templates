@@ -149,6 +149,21 @@
         "Clap",
         "CLI"
       ]
+    },
+    {
+      "name": "Leptos Starter",
+      "slug": "leptos-starter",
+      "description": "Leptos fullstack starter: SSR pages with htmx interactivity on Axum, tracing, and cargo fmt/clippy/test gates",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/leptos-starter",
+      "type": "leptos-fullstack",
+      "category": "fullstack-applications",
+      "labels": [
+        "Rust",
+        "Leptos",
+        "Axum",
+        "SSR",
+        "Fullstack"
+      ]
     }
   ],
   "extensions": [
@@ -159,7 +174,8 @@
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-github-setup",
       "type": [
         "axum-backend",
-        "cli"
+        "cli",
+        "leptos-fullstack"
       ],
       "category": "ci",
       "labels": [
@@ -190,7 +206,8 @@
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-devcontainer",
       "type": [
         "axum-backend",
-        "cli"
+        "cli",
+        "leptos-fullstack"
       ],
       "category": "editor",
       "labels": [
@@ -205,7 +222,8 @@
       "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/all-pre-commit",
       "type": [
         "axum-backend",
-        "cli"
+        "cli",
+        "leptos-fullstack"
       ],
       "category": "ci",
       "labels": [

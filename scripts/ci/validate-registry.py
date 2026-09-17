@@ -30,6 +30,7 @@ except ImportError:
 STACK_PREFIX_BY_TYPE: dict[str, str] = {
     "axum-backend": "axum",
     "cli": "cli",
+    "leptos-fullstack": "leptos",
 }
 
 REQUIRED_TEMPLATE_FILES = (
