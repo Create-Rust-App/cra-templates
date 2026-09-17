@@ -15,10 +15,8 @@ path = "src/lib.rs"
 
 [dependencies]
 anyhow = "1"
-# Pinned to the 4.5 line: clap 4.6+ needs edition2024/rust 1.85.
-# Kept frozen while the bank toolchain pin is 1.88 for reproducibility.
-clap = { version = "=4.5.48", features = ["derive", "cargo"] }
-clap_complete = "=4.5.9"
+clap = { version = "4.6", features = ["derive", "cargo"] }
+clap_complete = "4.6"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 
