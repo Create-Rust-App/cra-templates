@@ -342,6 +342,21 @@
       ]
     },
     {
+      "name": "Axum Compression",
+      "slug": "axum-compression",
+      "description": "Gzip response compression for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-compression",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "backend-applications",
+      "labels": [
+        "Gzip",
+        "Middleware",
+        "HTTP"
+      ]
+    },
+    {
       "name": "Axum Timeout",
       "slug": "axum-timeout",
       "description": "Fail-fast 10s request timeouts for the Axum service",
