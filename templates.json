@@ -405,6 +405,21 @@
         "CI",
         "DevOps"
       ]
+    },
+    {
+      "name": "Axum Security Headers",
+      "slug": "axum-security-headers",
+      "description": "Baseline response hardening headers for the Axum service",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=extensions/axum-security-headers",
+      "type": [
+        "axum-backend"
+      ],
+      "category": "security",
+      "labels": [
+        "Headers",
+        "Hardening",
+        "HTTP"
+      ]
     }
   ]
 }
