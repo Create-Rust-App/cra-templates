@@ -3,7 +3,7 @@
 ```text
 .
 ├── Cargo.toml            # crate manifest (axum, tokio, serde, tower-http, tracing)
-├── rust-toolchain.toml   # pinned toolchain (1.82.0)
+├── rust-toolchain.toml   # pinned toolchain (1.88.0)
 ├── cra.config.json       # scaffold-time options (apiPrefix)
 ├── .env.example          # documented runtime defaults
 ├── src/

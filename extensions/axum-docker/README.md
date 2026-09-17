@@ -5,7 +5,7 @@ build and a Compose stack for the Axum service.
 
 ## What it adds
 
-- `Dockerfile` — `cargo chef`-free two-stage build pinned to `rust:1.82`,
+- `Dockerfile` — `cargo chef`-free two-stage build pinned to `rust:1.88`,
   minimal Debian runtime, non-root user
 - `compose.yaml` — service with `PORT`/`API_PREFIX` wiring and a `/ping`
   healthcheck
