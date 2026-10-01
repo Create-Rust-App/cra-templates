@@ -42,6 +42,7 @@ create-rust-app my-api \
 | [worker-starter](./templates/worker-starter) | `worker` | Tokio background worker starter: typed job queue, worker pool, demo scheduler, graceful shutdown, and cargo fmt/clippy/test gates |
 | [lib-starter](./templates/lib-starter) | `library` | Publishable Rust library starter: feature modules, doc examples, demo binary, and cargo fmt/clippy/test gates |
 | [tonic-starter](./templates/tonic-starter) | `tonic-grpc` | tonic gRPC microservice starter: Protobuf contract, checked-in bindings, reflection, graceful shutdown, and cargo fmt/clippy/test gates |
+| [wasm-starter](./templates/wasm-starter) | `wasm` | Browser WASM library with wasm-bindgen exports, TypeScript bindings via wasm-pack, Vite demo, and headless browser tests |
 
 ## Available extensions
 

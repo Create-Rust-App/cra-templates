@@ -1,0 +1,30 @@
+[package]
+name = "wasm-starter"
+version = "0.1.0"
+edition = "2021"
+description = "Browser WASM library starter with wasm-bindgen, TypeScript bindings via wasm-pack, and Vite demo"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Create-Rust-App/cra-templates"
+keywords = ["starter", "wasm", "wasm-bindgen"]
+categories = ["development-tools", "wasm"]
+
+[[bin]]
+name = "wasm-starter"
+path = "src/main.rs"
+
+[lib]
+name = "wasm_starter"
+path = "src/lib.rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2.100"
+console_error_panic_hook = "0.1.7"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.50"
+
+[profile.release]
+lto = true
+codegen-units = 1

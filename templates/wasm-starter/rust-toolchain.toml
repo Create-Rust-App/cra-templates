@@ -1,0 +1,6 @@
+# Pinned toolchain for the scaffolded project (mirrors the bank pin).
+[toolchain]
+channel = "1.88.0"
+components = ["rustfmt", "clippy"]
+profile = "minimal"
+targets = ["wasm32-unknown-unknown"]

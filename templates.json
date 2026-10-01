@@ -120,6 +120,18 @@
         "DevContainer",
         "DX"
       ]
+    },
+    {
+      "slug": "wasm-applications",
+      "name": "WASM Applications",
+      "description": "Browser WASM libraries with TypeScript bindings.",
+      "details": "Use when the deliverable runs in the browser — wasm-bindgen libraries with wasm-pack builds and Vite demo.",
+      "labels": [
+        "WASM",
+        "Rust",
+        "TypeScript",
+        "Browser"
+      ]
     }
   ],
   "templates": [
@@ -204,6 +216,20 @@
         "gRPC",
         "Microservice"
       ]
+    },
+    {
+      "name": "Wasm Starter",
+      "slug": "wasm-starter",
+      "description": "Browser WASM library with wasm-bindgen exports, TypeScript bindings via wasm-pack, Vite demo, and headless browser tests",
+      "url": "https://github.com/Create-Rust-App/cra-templates?subdir=templates/wasm-starter",
+      "type": "wasm",
+      "category": "wasm-applications",
+      "labels": [
+        "Rust",
+        "WASM",
+        "wasm-bindgen",
+        "TypeScript"
+      ]
     }
   ],
   "extensions": [
@@ -218,7 +244,8 @@
         "leptos-fullstack",
         "worker",
         "library",
-        "tonic-grpc"
+        "tonic-grpc",
+        "wasm"
       ],
       "category": "ci",
       "labels": [
@@ -253,7 +280,8 @@
         "leptos-fullstack",
         "worker",
         "library",
-        "tonic-grpc"
+        "tonic-grpc",
+        "wasm"
       ],
       "category": "editor",
       "labels": [
@@ -272,7 +300,8 @@
         "leptos-fullstack",
         "worker",
         "library",
-        "tonic-grpc"
+        "tonic-grpc",
+        "wasm"
       ],
       "category": "ci",
       "labels": [
@@ -412,7 +441,8 @@
         "leptos-fullstack",
         "library",
         "tonic-grpc",
-        "worker"
+        "worker",
+        "wasm"
       ],
       "category": "ci",
       "labels": [
