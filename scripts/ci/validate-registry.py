@@ -34,6 +34,7 @@ STACK_PREFIX_BY_TYPE: dict[str, str] = {
     "worker": "worker",
     "library": "lib",
     "tonic-grpc": "tonic",
+    "wasm": "wasm",
 }
 
 REQUIRED_TEMPLATE_FILES = (
