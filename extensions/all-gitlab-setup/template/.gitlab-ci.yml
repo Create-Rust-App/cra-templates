@@ -2,7 +2,7 @@
 #
 # Mirrors the GitHub Actions pipeline from the `all-github-setup` extension:
 # formatting, Clippy with denied warnings, and the full test suite.
-# The image tracks the bank toolchain pin (currently 1.88).
+# The image tracks the bank toolchain pin (currently 1.89).
 
 stages:
   - lint
@@ -14,21 +14,21 @@ variables:
 
 fmt:
   stage: lint
-  image: rust:1.88-bookworm
+  image: rust:1.89-bookworm
   interruptible: true
   script:
     - cargo fmt --all -- --check
 
 clippy:
   stage: lint
-  image: rust:1.88-bookworm
+  image: rust:1.89-bookworm
   interruptible: true
   script:
     - cargo clippy --all-targets -- -D warnings
 
 test:
   stage: test
-  image: rust:1.88-bookworm
+  image: rust:1.89-bookworm
   interruptible: true
   script:
     - cargo test
