@@ -7,7 +7,7 @@ counterpart to `all-github-setup` — pick the forge your project lives on.
 
 - `.gitlab-ci.yml` — `cargo fmt --check` and `cargo clippy` with
   `-D warnings` in `lint`, plus `cargo test` in `test`, on the
-  `rust:1.88-bookworm` image (tracks the bank toolchain pin)
+  `rust:1.89-bookworm` image (tracks the bank toolchain pin)
 
 ## Compatibility
 
