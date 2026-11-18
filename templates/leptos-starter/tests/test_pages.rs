@@ -3,47 +3,24 @@
 use axum::{
     body::Body,
     http::{Request, StatusCode},
+    routing::get,
+    Router,
 };
-use leptos_starter::{app, config::Config, pages::home::Home, pages::not_found::NotFound};
+use leptos_starter::{config::Config, site::create_app};
 use tower::ServiceExt;
+
+fn extension_router() -> Router {
+    Router::new().route("/__test/extension", get(|| async { "extension route" }))
+}
+
+#[linkme::distributed_slice(leptos_starter::site::CUSTOM_ROUTES)]
+static TEST_EXTENSION_ROUTES: fn() -> Router = extension_router;
 
 mod support {
     use super::*;
-    use axum::{
-        response::{Html, IntoResponse},
-        routing::{get, post},
-        Router,
-    };
-    use leptos::*;
-    use leptos_starter::api::{count, health};
-
-    async fn home() -> Html<String> {
-        Html(app::shell(
-            "Leptos Starter",
-            &leptos::ssr::render_to_string(|| view! { <Home /> }),
-        ))
-    }
-
-    async fn not_found() -> impl IntoResponse {
-        (
-            StatusCode::NOT_FOUND,
-            Html(app::shell(
-                "Not found",
-                &leptos::ssr::render_to_string(|| view! { <NotFound /> }),
-            )),
-        )
-    }
-
-    pub fn app() -> Router {
-        Router::new()
-            .route("/", get(home))
-            .route("/api/healthz", get(health::healthz))
-            .route("/api/count", post(count::increment))
-            .fallback(not_found)
-    }
 
     pub async fn get_page(path: &str) -> (StatusCode, String) {
-        let response = app()
+        let response = create_app()
             .oneshot(Request::builder().uri(path).body(Body::empty()).unwrap())
             .await
             .unwrap();
@@ -76,7 +53,7 @@ async fn healthz_returns_ok_json() {
 
 #[tokio::test]
 async fn count_returns_incremented_fragment() {
-    let response = support::app()
+    let response = create_app()
         .oneshot(
             Request::builder()
                 .method("POST")
@@ -101,6 +78,13 @@ async fn unknown_route_renders_404_page() {
     let (status, body) = support::get_page("/nope").await;
     assert_eq!(status, StatusCode::NOT_FOUND);
     assert!(body.contains("Not found"), "404 page, got: {body}");
+}
+
+#[tokio::test]
+async fn extension_routes_are_merged_into_the_site_router() {
+    let (status, body) = support::get_page("/__test/extension").await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(body, "extension route");
 }
 
 #[test]

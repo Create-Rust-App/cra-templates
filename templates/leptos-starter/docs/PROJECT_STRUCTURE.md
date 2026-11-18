@@ -2,9 +2,10 @@
 
 ```text
 src/
-  main.rs                 # tracing setup + Axum routes + serve loop
-  lib.rs                  # module root (api, app, components, config, pages)
+  main.rs                 # tracing setup + serve loop
+  lib.rs                  # module root (api, app, components, config, pages, site)
   app.rs                  # shell(): full HTML document wrapper
+  site.rs                 # create_app(): Axum routes + extension hook
   config.rs               # Config::from_env with defaults
   components/
     mod.rs                # widget registry

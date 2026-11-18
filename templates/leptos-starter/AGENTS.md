@@ -19,6 +19,7 @@ cargo fmt --all -- --check
 - API modules under `src/api/<feature>.rs` serve JSON or HTML fragments.
 - Render through `leptos::ssr::render_to_string` (it owns the reactive
   runtime); never call `.render_to_string()` on a view outside it.
-- Copy `src/pages/home.rs` to start a new page; route it in `src/main.rs`.
+- Copy `src/pages/home.rs` to start a new page; add its route in
+  `src/site.rs::create_app` or contribute it through `CUSTOM_ROUTES`.
 - `Config::from_env()` is the only runtime configuration source; add new
   settings there with defaults and document them in `.env.example`.
