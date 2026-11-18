@@ -15,6 +15,14 @@ open http://localhost:3000/
 - `GET /api/healthz` — JSON health probe
 - `POST /api/count` — htmx fragment endpoint (increments the counter)
 
+## Extending routes
+
+The router is assembled in `src/site.rs::create_app`, while `src/main.rs`
+contains only tracing setup and the server loop. Extensions can contribute
+routers through the `site::CUSTOM_ROUTES` link-time slice without editing the
+binary entry point. Each registered function should return an Axum `Router`;
+the contributed routers are merged before the site's 404 fallback.
+
 Configure with environment variables (see `.env.example`):
 
 | Variable | Default | Purpose |
